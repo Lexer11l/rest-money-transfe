@@ -1,3 +1,6 @@
+# This script is intended only for clean instance run.
+# In debug mode it won't return expected result
+
 port=80
 userApiURL=http://localhost:$port/api/user
 accountApiURL=http://localhost:$port/api/account

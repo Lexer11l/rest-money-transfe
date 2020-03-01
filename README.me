@@ -1,6 +1,5 @@
 Add priorities
 
-
 TODO list
 * Separate models to DTO and ORM. Decided to keep it simple for now since we don't use DB.
 * Implement proper Dependency Injection (Inverted) or use suitable lib
@@ -18,6 +17,7 @@ TODO list
 * Remove hardcoded test data and use test data from database
 * Implement transaction commit/rollback mechanism while transfer
 * Add proper mocks to test
+* Add E2E REST Tests
 
 Methods for retrieving all users and all accounts weren't implemented intentionally since it will be huge amount of entries.
 Moreover this feature is rarely used without filters.
@@ -26,7 +26,7 @@ Moreover this feature is rarely used without filters.
 Test scripts for database initialization and correctness check is stored in test_data_init.sh
 
 REST endpoints
-Api path /api/*
+API path /api/*
 
 User:
 /user

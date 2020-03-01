@@ -2,6 +2,7 @@ package kmeshkov.revolut.repository.user;
 
 import kmeshkov.revolut.exception.StorageException;
 import kmeshkov.revolut.exception.UserIsNotFoundException;
+import kmeshkov.revolut.model.Currency;
 import kmeshkov.revolut.model.account.Account;
 import kmeshkov.revolut.model.user.User;
 import lombok.extern.log4j.Log4j2;
@@ -100,17 +101,17 @@ public class UserRepositoryImpl implements UserRepository {
     private void initStorage() {
         keyCounter = new AtomicLong(6);
         List<Account> firstUserAccounts = new CopyOnWriteArrayList<>();
-        firstUserAccounts.add(new Account(1L, true, new BigDecimal(1000), Calendar.getInstance().getTime(), 1L));
-        firstUserAccounts.add(new Account(2L, true, new BigDecimal(10000), Calendar.getInstance().getTime(), 1L));
+        firstUserAccounts.add(new Account(1L, true, new BigDecimal(1000), Calendar.getInstance().getTime(), 1L, Currency.RUB));
+        firstUserAccounts.add(new Account(2L, true, new BigDecimal(10000), Calendar.getInstance().getTime(), 1L, Currency.RUB));
 
         List<Account> secondUserAccounts = new CopyOnWriteArrayList<>();
-        secondUserAccounts.add(new Account(3L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 2L));
+        secondUserAccounts.add(new Account(3L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 2L, Currency.RUB));
 
         List<Account> thirdUserAccounts = new CopyOnWriteArrayList<>();
-        thirdUserAccounts.add(new Account(4L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 3L));
+        thirdUserAccounts.add(new Account(4L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 3L, Currency.RUB));
 
         List<Account> fourthUserAccounts = new CopyOnWriteArrayList<>();
-        fourthUserAccounts.add(new Account(5L, false, new BigDecimal(1000), Calendar.getInstance().getTime(), 4L));
+        fourthUserAccounts.add(new Account(5L, false, new BigDecimal(1000), Calendar.getInstance().getTime(), 4L, Currency.RUB));
 
         List<Account> fifthUserAccounts = new CopyOnWriteArrayList<>();
 

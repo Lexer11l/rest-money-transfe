@@ -2,6 +2,7 @@ package kmeshkov.revolut.repository.user;
 
 import kmeshkov.revolut.exception.StorageException;
 import kmeshkov.revolut.exception.UserIsNotFoundException;
+import kmeshkov.revolut.model.Currency;
 import kmeshkov.revolut.model.account.Account;
 import kmeshkov.revolut.model.user.User;
 import org.junit.Assert;
@@ -29,7 +30,7 @@ public class UserRepositoryImplTest {
     @BeforeClass
     public static void init() throws StorageException {
         repository = UserRepositoryHolder.getInstance();
-        accountsList.add(new Account(1L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 3L));
+        accountsList.add(new Account(1L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 3L, Currency.RUB));
         repository.createUser(user1);
         repository.createUser(user2);
         repository.createUser(user3);

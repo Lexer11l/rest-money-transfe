@@ -17,7 +17,7 @@ class Application {
     public static void main(String[] args) {
         Properties configuration = new Properties();
         try {
-            configuration.load(new FileInputStream(new File("src/main/resources/application.properties")));
+            configuration.load(new FileInputStream(new File("resources/application.properties")));
         } catch (IOException e) {
             log.error("Cannot load properties", e);
         }
