@@ -1,0 +1,52 @@
+Add priorities
+
+
+TODO list
+* Separate models to DTO and ORM. Decided to keep it simple for now since we don't use DB.
+* Implement proper Dependency Injection (Inverted) or use suitable lib
+* Make API Async
+* Add more logging
+* Add more tests
+* Enhance API response with more clear statuses and messages
+* Replace Date with LocalDateTime and fix serialization
+* Put messages to resource files and localize
+* Add input validation
+* Add new checks for error responses
+* Add filters parameters to retrieve data
+* Add log configuration
+* Add REST tests
+* Remove hardcoded test data and use test data from database
+* Implement transaction commit/rollback mechanism while transfer
+* Add proper mocks to test
+
+Methods for retrieving all users and all accounts weren't implemented intentionally since it will be huge amount of entries.
+Moreover this feature is rarely used without filters.
+
+
+Test scripts for database initialization and correctness check is stored in test_data_init.sh
+
+REST endpoints
+Api path /api/*
+
+User:
+/user
+    GET /{id} - retrieve user info by id
+    GET /{id}/balance - retrieve user total balance from all accounts
+    GET /{id}/accounts - retrieve info about all user's accounts
+    POST - create user
+    PUT - update user
+    DELETE - deactivate user
+
+Account:
+/account
+    GET /{id} - retrieve user info by id
+    GET /{id}/balance - retrieve user total balance from all accounts
+    POST - create user
+    PUT - update user
+    DELETE - deactivate user
+
+Transaction:
+/transaction
+    POST /deposit - deposit money to account
+    POST /withdraw - withdraw money from account
+    POST /transfer - transfer money from one account to another
