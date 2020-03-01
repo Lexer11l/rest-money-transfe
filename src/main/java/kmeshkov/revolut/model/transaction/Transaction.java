@@ -1,6 +1,7 @@
 package kmeshkov.revolut.model.transaction;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import kmeshkov.revolut.model.Currency;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +19,6 @@ public class Transaction{
     private Date transactionDate = Calendar.getInstance().getTime();
     private BigDecimal amount;
     private TransactionType transactionType;
+    //TODO implement multi currency transfers and conversion
+    private Currency currency;
 }

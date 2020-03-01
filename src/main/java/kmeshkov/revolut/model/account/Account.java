@@ -1,6 +1,7 @@
 package kmeshkov.revolut.model.account;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import kmeshkov.revolut.model.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,8 @@ public class Account{
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date accountCreated = Calendar.getInstance().getTime();
     private Long ownerUid;
+    //TODO implement multi currency account and conversion
+    private Currency currency;
     //TODO add account type
     public void disable(){
         isActive = false;
