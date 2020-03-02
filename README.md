@@ -16,7 +16,7 @@ Notice: To build and run app **Maven** and **Java** should be installed on your 
 - Implement transaction commit/rollback mechanism while transfer
 - Implement proper Dependency Injection (Inverted) or use suitable lib
 - Add filters parameters to retrieve data
-- Add E2E REST Tests
+- Automate E2E with REST-assured
 
 **MID Priority**
 - Make API Async
