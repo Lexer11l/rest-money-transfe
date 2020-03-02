@@ -33,28 +33,28 @@ Test scripts for database initialization and correctness check is stored in test
 ## REST endpoints
 API path /api/*
 
-**User:**
+##### User:
 **/user**
-    **GET /{id} ** - retrieve user info by id
-    **GET /{id}/balance ** - retrieve user total balance from all accounts
-    **GET /{id}/accounts ** - retrieve info about all user's accounts
-    **POST** - create user
-    **PUT** - update user
-    **DELETE** - deactivate user
+-    **GET /{id} ** - retrieve user info by id
+-    **GET /{id}/balance ** - retrieve user total balance from all accounts
+-    **GET /{id}/accounts ** - retrieve info about all user's accounts
+-    **POST** - create user
+-    **PUT** - update user
+-    **DELETE** - deactivate user
 
-**Account:**
+##### Account:
 **/account**
-    **GET /{id} ** - retrieve user info by id
-    **GET /{id}/balance** - retrieve user total balance from all accounts
-    **POST** - create user
-    **PUT** - update user
-    **DELETE** - deactivate user
+-    **GET /{id} ** - retrieve user info by id
+-    **GET /{id}/balance** - retrieve user total balance from all accounts
+-    **POST** - create user
+-    **PUT** - update user
+-    **DELETE** - deactivate user
 
-**Transaction:**
+##### Transaction:
 **/transaction**
-    **POST /deposit** - deposit money to account
-    **POST /withdraw** - withdraw money from account
-    **POST /transfer** - transfer money from one account to another
+-    **POST /deposit** - deposit money to account
+-    **POST /withdraw** - withdraw money from account
+-    **POST /transfer** - transfer money from one account to another
 
 ##### Test coverage 
 
