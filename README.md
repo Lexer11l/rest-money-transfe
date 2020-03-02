@@ -40,15 +40,15 @@ Methods for retrieving all users and all accounts weren't implemented intentiona
 Moreover this feature is rarely used without filters.
 
 **/user**
--    **GET /{id} ** - retrieve user info by id
--    **GET /{id}/balance ** - retrieve user total balance from all accounts
--    **GET /{id}/accounts ** - retrieve info about all user's accounts
+-    **GET /{id}** - retrieve user info by id
+-    **GET /{id}/balance** - retrieve user total balance from all accounts
+-    **GET /{id}/accounts** - retrieve info about all user's accounts
 -    **POST** - create user
 -    **PUT** - update user
 -    **DELETE** - deactivate user
 
 **/account**
--    **GET /{id} ** - retrieve user info by id
+-    **GET /{id}** - retrieve user info by id
 -    **GET /{id}/balance** - retrieve user total balance from all accounts
 -    **POST** - create user
 -    **PUT** - update user
