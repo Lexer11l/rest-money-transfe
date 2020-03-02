@@ -1,3 +1,12 @@
+Application uses Maven as build tool, to create executable jar use this command - *mvn clean package*
+
+To run app - *java -jar money-transfer-{version}.jar*
+
+To initialize database during startup and check correctness you can run test_data_init.sh.***
+
+Notice: To build and run app Maven and Java should be installed on your computer and put in PATH environment variable
+
+
 ## Feature TODO list
 
 **HIGH Priority**
@@ -24,14 +33,11 @@
 - Improve log configuration
 - Add proper mocks to test
 
+## REST endpoints
+API path /api/*
 
 Methods for retrieving all users and all accounts weren't implemented intentionally since it will be huge amount of entries.
 Moreover this feature is rarely used without filters.
-
-Test scripts for database initialization and correctness check is stored in test_data_init.sh
-
-## REST endpoints
-API path /api/*
 
 **/user**
 -    **GET /{id} ** - retrieve user info by id
