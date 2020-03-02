@@ -33,7 +33,6 @@ Test scripts for database initialization and correctness check is stored in test
 ## REST endpoints
 API path /api/*
 
-##### User:
 **/user**
 -    **GET /{id} ** - retrieve user info by id
 -    **GET /{id}/balance ** - retrieve user total balance from all accounts
@@ -42,7 +41,6 @@ API path /api/*
 -    **PUT** - update user
 -    **DELETE** - deactivate user
 
-##### Account:
 **/account**
 -    **GET /{id} ** - retrieve user info by id
 -    **GET /{id}/balance** - retrieve user total balance from all accounts
@@ -50,7 +48,6 @@ API path /api/*
 -    **PUT** - update user
 -    **DELETE** - deactivate user
 
-##### Transaction:
 **/transaction**
 -    **POST /deposit** - deposit money to account
 -    **POST /withdraw** - withdraw money from account
