@@ -24,7 +24,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
             long uid = keyCounter.getAndIncrement();
             entity.setId(uid);
             database.put(uid, entity);
-            return entity;
+            return database.get(uid);
         } catch (Exception e) {
             log.error(e);
             throw new StorageException(e);

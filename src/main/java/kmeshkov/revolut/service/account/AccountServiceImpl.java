@@ -33,12 +33,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account updateAccount(Account entity) throws StorageException {
+    public Account updateAccount(Account entity) throws StorageException, AccountIsNotFoundException {
         return accountRepository.updateAccount(entity);
     }
 
     @Override
-    public boolean deactivateAccount(Long id) throws StorageException {
+    public boolean deactivateAccount(Long id) throws StorageException, AccountIsNotFoundException {
         return accountRepository.deactivateAccount(id);
     }
 

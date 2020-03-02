@@ -2,17 +2,13 @@ package kmeshkov.revolut.repository.user;
 
 import kmeshkov.revolut.exception.StorageException;
 import kmeshkov.revolut.exception.UserIsNotFoundException;
-import kmeshkov.revolut.model.Currency;
 import kmeshkov.revolut.model.account.Account;
 import kmeshkov.revolut.model.user.User;
 import lombok.extern.log4j.Log4j2;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Log4j2
@@ -31,7 +27,7 @@ public class UserRepositoryImpl implements UserRepository {
             long uid = keyCounter.getAndIncrement();
             entity.setId(uid);
             database.put(uid, entity);
-            return entity;
+            return database.get(uid);
         } catch (Exception e) {
             log.error(e);
             throw new StorageException(e);
@@ -58,7 +54,8 @@ public class UserRepositoryImpl implements UserRepository {
         if (!database.containsKey(userId))
             throw new UserIsNotFoundException("User with id " + userId + " is not found");
         try {
-            return database.put(userId, entity);
+            database.put(userId, entity);
+            return database.get(userId);
         } catch (Exception e) {
             log.error(e);
             throw new StorageException(e);

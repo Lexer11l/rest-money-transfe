@@ -10,7 +10,7 @@ public interface AccountService {
 
     Account getAccountById(Long id) throws StorageException, AccountIsNotFoundException;
 
-    Account updateAccount(Account entity) throws StorageException;
+    Account updateAccount(Account entity) throws StorageException, AccountIsNotFoundException;
 
-    boolean deactivateAccount(Long id) throws StorageException;
+    boolean deactivateAccount(Long id) throws StorageException, AccountIsNotFoundException;
 }

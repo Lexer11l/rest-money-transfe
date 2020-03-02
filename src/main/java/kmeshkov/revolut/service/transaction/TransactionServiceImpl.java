@@ -50,7 +50,6 @@ public class TransactionServiceImpl implements TransactionService {
             throw new DeactivatedAccountException("Account " + transaction.getToAccount() + " is deactivated");
         }
         account.setBalance(account.getBalance().add(transaction.getAmount()));
-        accountRepository.updateAccount(account);
     }
 
     private void withdrawFromAccount(Transaction transaction) throws StorageException, NotEnoughMoneyException, NegativeAmountException, DeactivatedAccountException, AccountIsNotFoundException {
@@ -58,10 +57,6 @@ public class TransactionServiceImpl implements TransactionService {
             throw new NegativeAmountException("Passed transaction amount is less or equal " + MIN_TRANSACTION_AMOUNT + ". Cannot deposit");
         }
         Account account = accountRepository.getAccountById(transaction.getFromAccount());
-        if (account == null) {
-            log.error("Account " + transaction.getFromAccount() + "is not found");
-            throw new AccountIsNotFoundException("Account is not found");
-        }
         if (!account.isActive()){
             throw new DeactivatedAccountException("Account " + transaction.getFromAccount() + " is deactivated");
         }
@@ -69,7 +64,6 @@ public class TransactionServiceImpl implements TransactionService {
             throw new NotEnoughMoneyException("Not enough money to make operation");
         }
         account.setBalance(account.getBalance().subtract(transaction.getAmount()));
-        accountRepository.updateAccount(account);
     }
 
     private Transaction saveTransaction(Transaction transaction) throws StorageException {

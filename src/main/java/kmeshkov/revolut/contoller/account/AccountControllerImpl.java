@@ -63,6 +63,8 @@ public class AccountControllerImpl implements AccountController {
             return Response.ok(account).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
+        } catch (AccountIsNotFoundException e) {
+            return Response.serverError().status(500, ACCOUNT_NOT_FOUND_ERROR_MESSAGE).build();
         }
     }
 
@@ -78,6 +80,8 @@ public class AccountControllerImpl implements AccountController {
             else return Response.status(500, "Cannot deactivate account. Please contact support").build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
+        } catch (AccountIsNotFoundException e) {
+            return Response.serverError().status(500, ACCOUNT_NOT_FOUND_ERROR_MESSAGE).build();
         }
     }
 }
