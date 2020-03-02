@@ -1,10 +1,10 @@
-Application uses Maven as build tool, to create executable jar use this command - *mvn clean package*
+Application uses Maven as build tool, to create executable jar use this command - ***mvn clean package***
 
-To run app - *java -jar money-transfer-{version}.jar*
+To run app - ***java -jar money-transfer-{version}.jar***
 
-To initialize database during startup and check correctness you can run test_data_init.sh.***
+To initialize database during startup and check correctness you can run ***test_data_init.sh.***
 
-Notice: To build and run app Maven and Java should be installed on your computer and put in PATH environment variable
+Notice: To build and run app **Maven** and **Java** should be installed on your computer and put in **PATH** environment variable
 
 
 ## Feature TODO list
