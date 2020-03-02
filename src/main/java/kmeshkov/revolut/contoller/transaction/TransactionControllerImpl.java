@@ -30,7 +30,8 @@ public class TransactionControllerImpl implements TransactionController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response deposit(Transaction transaction) {
         try {
-            return Response.ok(transactionService.deposit(transaction)).build();
+            Transaction transactionResult = transactionService.deposit(transaction);
+            return Response.ok(transactionResult).build();
         } catch (StorageException e) {
             return Response.status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (NegativeAmountException e) {
@@ -49,7 +50,8 @@ public class TransactionControllerImpl implements TransactionController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response withdraw(Transaction transaction) {
         try {
-            return Response.ok(transactionService.withdraw(transaction)).build();
+            Transaction transactionResult = transactionService.withdraw(transaction);
+            return Response.ok(transactionResult).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (NotEnoughMoneyException e) {
@@ -69,7 +71,8 @@ public class TransactionControllerImpl implements TransactionController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response transfer(Transaction transaction) {
         try {
-            return Response.ok(transactionService.transfer(transaction)).build();
+            Transaction transactionResult = transactionService.transfer(transaction);
+            return Response.ok(transactionResult).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (NegativeAmountException e) {

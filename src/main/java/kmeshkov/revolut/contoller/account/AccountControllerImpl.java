@@ -30,7 +30,8 @@ public class AccountControllerImpl implements AccountController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createAccount(Account entity) {
         try {
-            return Response.ok(accountService.createAccount(entity)).build();
+            Account account = accountService.createAccount(entity);
+            return Response.ok(account).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (UserIsNotFoundException e) {
@@ -44,7 +45,8 @@ public class AccountControllerImpl implements AccountController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAccountById(@PathParam("id") Long id) {
         try {
-            return Response.ok(accountService.getAccountById(id)).build();
+            Account account = accountService.getAccountById(id);
+            return Response.ok(account).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (AccountIsNotFoundException e) {
@@ -57,7 +59,8 @@ public class AccountControllerImpl implements AccountController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateAccount(Account entity) {
         try {
-            return Response.ok(accountService.updateAccount(entity)).build();
+            Account account = accountService.updateAccount(entity);
+            return Response.ok(account).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         }

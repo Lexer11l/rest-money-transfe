@@ -12,8 +12,5 @@ public interface TransactionController {
     Response deposit(Transaction transaction);
     Response withdraw(Transaction transaction);
     Response transfer(Transaction transaction);
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    Response getTransactionById(@PathParam("id") Long id);
+    Response getTransactionById( Long id);
 }

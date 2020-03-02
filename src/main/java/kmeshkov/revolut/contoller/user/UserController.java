@@ -14,15 +14,6 @@ public interface UserController {
     Response getUserById(Long id);
     Response updateUser(User entity);
     Response deactivateUser(Long id);
-
-    @GET
-    @Path("/{id}/balance")
-    @Produces(MediaType.APPLICATION_JSON)
-    //TODO Implement authentication to show balance only for owner or other authorized person
     Response checkUserBalance(Long id);
-
-    @GET
-    @Path("/user/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    Response getAllUserAccounts(@PathParam("id") Long id);
+    Response getAllUserAccounts(Long id);
 }

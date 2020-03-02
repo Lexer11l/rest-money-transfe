@@ -18,12 +18,8 @@ public class AccountRepositoryImpl implements AccountRepository {
     private AtomicLong keyCounter;
 
     AccountRepositoryImpl() {
-        if (Boolean.parseBoolean(System.getProperty("isDebug"))) {
-            initStorage();
-        } else {
-            database = new ConcurrentHashMap<>();
-            keyCounter = new AtomicLong(1);
-        }
+        database = new ConcurrentHashMap<>();
+        keyCounter = new AtomicLong(1);
     }
 
     @Override
@@ -73,16 +69,5 @@ public class AccountRepositoryImpl implements AccountRepository {
             log.error(e);
             throw new StorageException(e);
         }
-    }
-
-    private void initStorage() {
-        keyCounter = new AtomicLong(6);
-        database = new ConcurrentHashMap<Long, Account>() {{
-            put(1L, new Account(1L, true, new BigDecimal(1000), Calendar.getInstance().getTime(), 1L, Currency.RUB));
-            put(2L, new Account(2L, true, new BigDecimal(10000), Calendar.getInstance().getTime(), 1L, Currency.RUB));
-            put(3L, new Account(3L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 2L, Currency.RUB));
-            put(4L, new Account(4L, true, BigDecimal.ZERO, Calendar.getInstance().getTime(), 3L, Currency.RUB));
-            put(5L, new Account(5L, false, new BigDecimal(1000), Calendar.getInstance().getTime(), 4L, Currency.RUB));
-        }};
     }
 }

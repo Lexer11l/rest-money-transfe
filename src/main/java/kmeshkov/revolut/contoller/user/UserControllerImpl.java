@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Path("/user")
 //TODO Make methods async
@@ -30,7 +31,8 @@ public class UserControllerImpl implements UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createUser(User entity) {
         try {
-            return Response.ok(userService.createUser(entity)).build();
+            User user = userService.createUser(entity);
+            return Response.ok(user).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         }
@@ -42,7 +44,8 @@ public class UserControllerImpl implements UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserById(@PathParam("id") Long id) {
         try {
-            return Response.ok(userService.getUserById(id)).build();
+            User user = userService.getUserById(id);
+            return Response.ok(user).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (UserIsNotFoundException e) {
@@ -55,7 +58,8 @@ public class UserControllerImpl implements UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateUser(User entity) {
         try {
-            return Response.ok(userService.updateUser(entity)).build();
+            User user = userService.updateUser(entity);
+            return Response.ok(user).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (UserIsNotFoundException e) {
@@ -103,7 +107,8 @@ public class UserControllerImpl implements UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUserAccounts(@PathParam("id") Long id) {
         try {
-            return Response.ok(userService.getAccountsByUserId(id)).build();
+            List<Account> accounts = userService.getAccountsByUserId(id);
+            return Response.ok(accounts).build();
         } catch (StorageException e) {
             return Response.serverError().status(500, INTERNAL_ERROR_MESSAGE).build();
         } catch (UserIsNotFoundException e) {

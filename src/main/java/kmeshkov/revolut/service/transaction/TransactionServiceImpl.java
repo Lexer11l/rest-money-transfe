@@ -25,20 +25,20 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction deposit(Transaction transaction) throws StorageException, NegativeAmountException, DeactivatedAccountException, AccountIsNotFoundException {
         depositToAccount(transaction);
-        return transactionRepository.create(transaction);
+        return saveTransaction(transaction);
     }
 
     @Override
     public Transaction withdraw(Transaction transaction) throws StorageException, NotEnoughMoneyException, NegativeAmountException, DeactivatedAccountException, AccountIsNotFoundException {
         withdrawFromAccount(transaction);
-        return transactionRepository.create(transaction);
+        return saveTransaction(transaction);
     }
 
     @Override
     public Transaction transfer(Transaction transaction) throws StorageException, NegativeAmountException, NotEnoughMoneyException, DeactivatedAccountException, AccountIsNotFoundException {
         withdrawFromAccount(transaction);
         depositToAccount(transaction);
-        return transactionRepository.create(transaction);
+        return saveTransaction(transaction);
     }
 
     private void depositToAccount(Transaction transaction) throws StorageException, NegativeAmountException, DeactivatedAccountException, AccountIsNotFoundException {
@@ -72,4 +72,9 @@ public class TransactionServiceImpl implements TransactionService {
         accountRepository.updateAccount(account);
     }
 
+    private Transaction saveTransaction(Transaction transaction) throws StorageException {
+        Transaction savedTransaction = transactionRepository.create(transaction);
+        log.info("Successful transaction:\n {}", savedTransaction);
+        return savedTransaction;
+    }
 }
